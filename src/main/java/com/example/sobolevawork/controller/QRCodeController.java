@@ -25,9 +25,7 @@ public class QRCodeController {
         return "index";
     }
 
-    /**
-     * Сгенерировать обычный QR-код по URL-адресу
-     */
+
     @RequestMapping(value = "/createCommonQRCode/{id}")
     public void createCommonQRCode(HttpServletResponse response,
                                    @PathVariable Long id) throws Exception {
@@ -35,30 +33,7 @@ public class QRCodeController {
         ServletOutputStream stream = null;
         try {
             stream = response.getOutputStream();
-            // Используйте инструменты для генерации QR-кода
             QRCodeService.encode(url, stream);
-        } catch (Exception e) {
-            e.getStackTrace();
-        } finally {
-            if (stream != null) {
-                stream.flush();
-                stream.close();
-            }
-        }
-    }
-
-    /**
-     * Сгенерируйте QR-код с логотипом согласно URL
-     */
-    @RequestMapping(value = "/createLogoQRCode")
-    public void createLogoQRCode(HttpServletResponse response, String id) throws Exception {
-        ServletOutputStream stream = null;
-        try {
-            stream = response.getOutputStream();
-            String logoPath = Thread.currentThread().getContextClassLoader().getResource("").getPath()
-                    + "templates" + File.separator + "logo.jpg";
-            // Используйте инструменты для генерации QR-кода
-            QRCodeService.encode(id, logoPath, stream, true);
         } catch (Exception e) {
             e.getStackTrace();
         } finally {

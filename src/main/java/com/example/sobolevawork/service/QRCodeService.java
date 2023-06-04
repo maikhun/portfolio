@@ -104,7 +104,6 @@ public class QRCodeService {
 
     public static void mkdirs(String destPath) {
         File file = new File(destPath);
-        // Если папка не существует, mkdirs автоматически создаст многоуровневые каталоги, в отличие от mkdir. (mkdir выдаст исключение, если родительский каталог не существует)
         if (!file.exists() && !file.isDirectory()) {
             file.mkdirs();
         }

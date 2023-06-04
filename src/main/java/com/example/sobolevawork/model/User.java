@@ -16,34 +16,41 @@ import java.util.Set;
  * Сущность "Пользователь"
  *
  * */
-
 @Entity
 @Table(name = "user_info")
 @Data
 public class User implements UserDetails {
+    // Id - идентификатор пользователя
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
+    // FirstName - имя пользователя
     @Column(name = "firstname", nullable = false)
     private String firstname;
 
+    // SecondName - фамилия пользователя
     @Column(name = "secondname", nullable = false)
     private String secondname;
 
+    // Email - почта пользователя (логин)
     @Column(name = "email", unique = true)
     private String email;
 
+    // Gender - пол пользователя
     @Column(name="gender", nullable = false)
     private String gender;
 
+    // Nationality - национальность пользователя
     @Column(name = "nationality", nullable = true)
     private String nationality;
 
+    // Education - образование пользователя
     @Column(name="education", nullable = false)
     private String education;
 
+    // Password - пароль пользователя
     @Column(name = "password", length = 100)
     private String password;
 
