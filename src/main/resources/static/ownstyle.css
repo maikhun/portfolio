@@ -1,0 +1,51 @@
+li {
+    height: 100%;
+    list-style: none;
+}
+
+.tag {
+    padding-bottom: 5px;
+    border-bottom: 3px solid #F01AB4;
+}
+
+details > summary {
+    list-style: none;
+}
+
+summary::after {
+    content: '∨︎';
+}
+
+details[open] summary:after {
+    content: "∧︎";
+}
+
+.circle {
+    font-size: 20px;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    line-height: 2em;
+    border-radius: 2em;
+    background: #5FEB23;
+    margin: 0 1em;
+    display: inline-block;
+    color: black;
+    position: relative;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 1.4em;
+    left: -11.25em;
+    width: 10em;
+    height: .2em;
+    background: #5FEB23;
+    z-index: 1;
+}
+
+.circle:first-child::before {
+    display: none;
+}
+
